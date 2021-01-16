@@ -1,11 +1,11 @@
 import React from 'react';
 
-function App() {
+const App: React.FC = React.memo(() => {
   return (
     <div>
       Hello world!
     </div>
   );
-}
+});
 
 export default App;
