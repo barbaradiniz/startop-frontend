@@ -13,7 +13,7 @@ const Landing = React.memo(() => {
             <Section>
                 <div>
                     <h1><span>Realize</span> seu sonho</h1>
-                    <Link to="/">Cadastrar-se</Link>
+                    <Link to="/signup">Cadastrar-se</Link>
                 </div>
                 <img src={startupImage} alt="Startup"/>
             </Section>
@@ -33,8 +33,8 @@ const Landing = React.memo(() => {
             </Section>
             <Footer>
                 <h1>Vamos começar sua <span>jornada</span>?</h1>
-                <Link to="/">Cadastrar-se</Link>
-                <p>Já é um usuário? <Link to="/">Entrar</Link></p>
+                <Link to="/signup">Cadastrar-se</Link>
+                <p>Já é um usuário? <Link to="/login">Entrar</Link></p>
             </Footer>
         </>
     );

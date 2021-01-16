@@ -11,8 +11,8 @@ const Header = React.memo(() => {
                 <Link to="/">sobre</Link>
                 <Link to="/">contato</Link>
                 <span/>
-                <Link to="/">Entrar</Link>
-                <SignUpButton to="/">Cadastre-se</SignUpButton>
+                <Link to="/login">Entrar</Link>
+                <SignUpButton to="/signup">Cadastre-se</SignUpButton>
             </div>
         </Container>
     );
