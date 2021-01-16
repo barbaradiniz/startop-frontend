@@ -3,7 +3,7 @@ import Header from '../../shared/Header';
 import startupImage from '../../../assets/images/startup.png';
 import ideaImage from '../../../assets/images/idea.png';
 import investorsImage from '../../../assets/images/investors.png';
-import { Section } from './styles';
+import { Footer, Section } from './styles';
 import { Link } from 'react-router-dom';
 
 const Landing = React.memo(() => {
@@ -31,6 +31,11 @@ const Landing = React.memo(() => {
                 </div>
                 <img src={investorsImage} alt="Talking to investors"/>
             </Section>
+            <Footer>
+                <h1>Vamos começar sua <span>jornada</span>?</h1>
+                <Link to="/">Cadastrar-se</Link>
+                <p>Já é um usuário? <Link to="/">Entrar</Link></p>
+            </Footer>
         </>
     );
 });
