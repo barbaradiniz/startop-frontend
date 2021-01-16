@@ -6,7 +6,7 @@ import logo from '../../../assets/images/startop.svg';
 const Header = React.memo(() => {
     return (
         <Container>
-            <img src={logo} alt="Logo"/>
+            <Link to="/"><img src={logo} alt="Logo"/></Link>
             <div>
                 <Link to="/">sobre</Link>
                 <Link to="/">contato</Link>
