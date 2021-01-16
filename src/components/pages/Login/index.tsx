@@ -29,6 +29,7 @@ const Login = React.memo(() => {
                         onSubmit={handleSubmit}
                         initialValues={{ email: '', password: '' }}
                         validationSchema={validationSchema}
+                        validateOnBlur={false}
                     >
                         <Form>
                             <h1>Login</h1>
