@@ -60,7 +60,7 @@ export const AuthProvider : React.FC = ({ children }) => {
         Object.assign(data, { id: uuid() });
         const res = await api.post('users', data);
 
-        const { user } = res.data;
+        const user = res.data;
 
         setData({ user });
     }, []);
