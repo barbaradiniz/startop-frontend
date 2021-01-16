@@ -4,14 +4,15 @@ import { Background, Container, Form, TopBorder } from './styles';
 import InputBlock from '../../shared/InputBlock';
 import { FiMail, FiLock, FiUser } from 'react-icons/fi';
 import Button from '../../shared/Button';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Formik } from 'formik';
 import Switch from '../../shared/Switch';
 import * as Yup from 'yup';
+import { useAuth } from '../../../hooks/auth';
 
 const validationSchema = Yup.object().shape({
     name: Yup.string().required('Nome obrigatório'),
-    username: Yup.string().trim('Um username não pode ter espaços').required('Username obrigatório'),
+    username: Yup.string().required('Username obrigatório'),
     type: Yup.number(),
     email: Yup.string().email('Email inválido').required('Email obrigatório'),
     password: Yup.string().min(6, 'Mínimo de 6 caracteres').required('Senha obrigatória'),
@@ -20,8 +21,12 @@ const validationSchema = Yup.object().shape({
 
 const SignUp = React.memo(() => {
 
-    const handleSubmit = React.useCallback(values => {
-        console.log(values);
+    const { signUp } = useAuth();
+    const { push } = useHistory();
+
+    const handleSubmit = React.useCallback(async values => {
+        await signUp(values);
+        push('/');
     }, []);
 
     return (

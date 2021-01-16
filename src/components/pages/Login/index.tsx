@@ -4,9 +4,10 @@ import { Background, Container, Form, TopBorder } from './styles';
 import InputBlock from '../../shared/InputBlock';
 import { FiMail, FiLock } from 'react-icons/fi';
 import Button from '../../shared/Button';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import { useAuth } from '../../../hooks/auth';
 
 const validationSchema = Yup.object().shape({
     email: Yup.string().email('Email inválido').required('Email obrigatório'),
@@ -14,8 +15,12 @@ const validationSchema = Yup.object().shape({
 });
 
 const Login = React.memo(() => {
-    const handleSubmit = React.useCallback(values => {
-        console.log(values);
+    const { signIn } = useAuth();
+    const { push } = useHistory();
+
+    const handleSubmit = React.useCallback(async values => {
+        await signIn(values);
+        push('/');
     }, []);
 
     return (
