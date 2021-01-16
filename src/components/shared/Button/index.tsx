@@ -1,9 +1,9 @@
 import React from 'react';
 import { Container } from './styles';
 
-const Button = React.memo(({ children }) => {
+const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement>> = React.memo(({ children, ...rest }) => {
     return (
-        <Container>
+        <Container {...rest}>
             {children}
         </Container>
     );
