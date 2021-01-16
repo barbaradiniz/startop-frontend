@@ -49,7 +49,7 @@ export const Form = styled(FormikForm)`
         margin-bottom: 40px;
     }
 
-    p {
+    > p {
         color: #CFCFCF;
         margin-top: 49px;
         a {

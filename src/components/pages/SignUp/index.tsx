@@ -7,6 +7,15 @@ import Button from '../../shared/Button';
 import { Link } from 'react-router-dom';
 import { Formik } from 'formik';
 import Switch from '../../shared/Switch';
+import * as Yup from 'yup';
+
+const validationSchema = Yup.object().shape({
+    name: Yup.string().required('Nome obrigatório'),
+    userType: Yup.number(),
+    email: Yup.string().email('Email inválido').required('Email obrigatório'),
+    password: Yup.string().min(6, 'Mínimo de 6 caracteres').required('Senha obrigatória'),
+    confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], 'Senha não corresponde à anterior').min(6, 'Mínimo de 6 caracteres').required('Senha obrigatória')
+});
 
 const SignUp = React.memo(() => {
 
@@ -23,6 +32,8 @@ const SignUp = React.memo(() => {
                     <Formik
                         onSubmit={handleSubmit}
                         initialValues={{ name: '', userType: 1, email: '', password: '', confirmPassword: '' }}
+                        validationSchema={validationSchema}
+                        validateOnBlur={false}
                     >
                         <Form>
                             <h1>Cadastro</h1>
