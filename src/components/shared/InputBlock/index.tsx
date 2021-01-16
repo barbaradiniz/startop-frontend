@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from './styles';
 import { IconBaseProps } from 'react-icons';
+import { Field } from 'formik';
 
 interface IInputBlockProps extends React.InputHTMLAttributes<HTMLInputElement> {
     name: string;
@@ -12,7 +13,7 @@ const InputBlock: React.FC<IInputBlockProps> = React.memo(({ Icon, name, placeho
     return (
         <Container>
             <Icon size={24} />
-            <input placeholder={placeholder} name={name} {...rest} />
+            <Field placeholder={placeholder} name={name} {...rest} />
         </Container>
     );
 });
