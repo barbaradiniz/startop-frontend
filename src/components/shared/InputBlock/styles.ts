@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+interface ContainerProps {
+    hasError: boolean
+}
+
+export const Container = styled.div<ContainerProps>`
     padding: 0px 16px;
     display: flex;
     align-items: center;
@@ -8,7 +12,9 @@ export const Container = styled.div`
     height: 50px;
     border-radius: 8px;
     background-color: #333333;
-    color: #3D3D3D;
+    color: ${props => props.hasError ? '#F24236' : '#3D3D3D'};
+
+    border: 2px solid ${props => props.hasError ? '#F24236' : '#333333'};
 
     & + div {
         margin-top: 8px;
@@ -24,4 +30,12 @@ export const Container = styled.div`
 
         color: #EEEEEE;
     }
+`;
+
+export const Error = styled.p`
+    color: #F24236;
+    font-size: 14px;
+    font-weight: 700;
+    width: 100%;
+    text-align: left;
 `;
