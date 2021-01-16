@@ -4,6 +4,7 @@ export default createGlobalStyle`
     * {
         padding: 0;
         margin: 0;
+        border: 0;
         box-sizing: border-box;
         outline: 0;
     }
