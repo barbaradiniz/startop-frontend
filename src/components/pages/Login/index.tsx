@@ -6,6 +6,12 @@ import { FiMail, FiLock } from 'react-icons/fi';
 import Button from '../../shared/Button';
 import { Link } from 'react-router-dom';
 import { Formik } from 'formik';
+import * as Yup from 'yup';
+
+const validationSchema = Yup.object().shape({
+    email: Yup.string().email('Email inválido').required('Email obrigatório'),
+    password: Yup.string().required('Senha obrigatória').min(6, 'Mínimo de 6 caracteres')
+});
 
 const Login = React.memo(() => {
     const handleSubmit = React.useCallback(values => {
@@ -22,6 +28,7 @@ const Login = React.memo(() => {
                     <Formik
                         onSubmit={handleSubmit}
                         initialValues={{ email: '', password: '' }}
+                        validationSchema={validationSchema}
                     >
                         <Form>
                             <h1>Login</h1>
