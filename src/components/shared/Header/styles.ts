@@ -12,6 +12,10 @@ export const Container = styled.header`
     padding: 0px 30px;
     position: relative;
 
+    > a {
+        display: flex;
+    }
+
     > div {
         display: flex;
         align-items: center;
