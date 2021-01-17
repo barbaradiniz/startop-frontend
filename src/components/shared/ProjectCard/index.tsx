@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Image } from './styles';
 import image from '../../../assets/images/login-page-background.png';
+import { Link } from 'react-router-dom';
 
 interface IProject {
     name: string;
@@ -9,7 +10,8 @@ interface IProject {
     videoPitch: string,
     businessPlan: string,
     presentation: string,
-    investment: number
+    investment: number,
+    _id: string;
 }
 
 interface IProjectCardProps {
@@ -18,13 +20,15 @@ interface IProjectCardProps {
 
 const ProjectCard: React.FC<IProjectCardProps> = React.memo(({ project }) => {
     return (
-        <Container>
-            <Image src={image} />
-            <div>
-                <h4><span>R$</span> {project.investment}</h4>
-                <h3>{project.name}</h3>
-            </div>
-        </Container>
+        <Link to={`/project/update/${project._id}`}>
+            <Container>
+                <Image src={image} />
+                <div>
+                    <h4><span>R$</span> {project.investment}</h4>
+                    <h3>{project.name}</h3>
+                </div>
+            </Container>
+        </Link>
     );
 });
 

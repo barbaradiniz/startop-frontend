@@ -15,7 +15,8 @@ interface IProject {
     videoPitch: string,
     businessPlan: string,
     presentation: string,
-    investment: number
+    investment: number,
+    _id: string;
 }
 
 interface IProjectDTO {
