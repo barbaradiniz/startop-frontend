@@ -61,6 +61,11 @@ export const Container = styled.div<ContainerProps>`
         ::placeholder {
             color: #9E9E9E;
         }
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
     }
 `;
 

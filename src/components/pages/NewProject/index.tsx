@@ -38,7 +38,7 @@ const NewProject = React.memo(() => {
                         <Switch name="segment" data={Object.values(segments)} />
                         <InputBlock Icon={FiGrid} name="name" placeholder="Título" />
                         <InputBlock Icon={FiAlignLeft} name="description" placeholder="Descrição" textarea />
-                        <InputBlock Icon={FiDollarSign} name="investment" placeholder="Investimento" />
+                        <InputBlock Icon={FiDollarSign} type="number" name="investment" placeholder="Investimento" />
                         <FileInput Icon={FiVideo} accept="video/*" name="videoPitch" placeholder="Vídeo Pitch" />
                         <FileInput Icon={FiUpload} accept="application/pdf" name="businessPlan" placeholder="Plano de negócios (PDF)" />
                         <FileInput Icon={FiUpload} accept="application/pdf" name="presentation" placeholder="Apresentação (PDF)" />
