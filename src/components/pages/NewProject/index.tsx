@@ -22,7 +22,7 @@ const NewProject = React.memo(() => {
                         title: '',
                         description: '',
                         segment: '',
-                        pitch: '',
+                        videoPitch: '',
                         businessPlan: '',
                         presentation: ''
                     }}
@@ -32,7 +32,7 @@ const NewProject = React.memo(() => {
                         <InputBlock Icon={FiGrid} name="title" placeholder="Título" />
                         <InputBlock Icon={FiAlignLeft} name="description" placeholder="Descrição" textarea />
                         <InputBlock Icon={FiServer} name="segment" placeholder="Segmento" />
-                        <FileInput Icon={FiVideo} accept="video/*" name="pitch" placeholder="Vídeo Pitch" />
+                        <FileInput Icon={FiVideo} accept="video/*" name="videoPitch" placeholder="Vídeo Pitch" />
                         <FileInput Icon={FiUpload} accept="application/pdf" name="businessPlan" placeholder="Plano de negócios (PDF)" />
                         <FileInput Icon={FiUpload} accept="application/pdf" name="presentation" placeholder="Apresentação (PDF)" />
                         <Button type="submit">Enviar</Button>
