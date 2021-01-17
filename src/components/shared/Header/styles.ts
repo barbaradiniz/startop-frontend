@@ -25,10 +25,24 @@ export const Container = styled.header`
             margin-left: 10px;
         }
 
-        span {
+        > span {
             height: 40px;
             width: 1px;
             background-color: #EEEEEE;
+        }
+
+        > div {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background-color: #3D3D3D;
+            border-radius: 8px;
+            padding: 0 15px;
+            height: 45px;
+
+            > span {
+                color: #F24236;
+            }
         }
     }
 `;
