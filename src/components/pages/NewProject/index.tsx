@@ -14,7 +14,9 @@ const NewProject = React.memo(() => {
     const { createProject } = useProject();
 
     const handleSubmit = React.useCallback(async values => {
-        await createProject(values);
+        const segment = Object.keys(segments).find(key => segments[key] === Object.values(segments)[values.segment - 1]);
+
+        await createProject({...values, segment });
     }, []);
 
     return (
