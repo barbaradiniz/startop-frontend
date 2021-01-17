@@ -1,6 +1,6 @@
 import { Form, Formik } from 'formik';
 import React, { useEffect, useState } from 'react';
-import { FiVideo, FiGrid, FiServer, FiUpload, FiAlignLeft } from 'react-icons/fi';
+import { FiVideo, FiGrid, FiServer, FiUpload, FiAlignLeft, FiDollarSign } from 'react-icons/fi';
 import { useRouteMatch } from 'react-router-dom';
 import api from '../../../services/api';
 import Button from '../../shared/Button';
@@ -39,7 +39,8 @@ const UpdateProject = React.memo(() => {
                         segment: project.segment,
                         videoPitch: '',
                         businessPlan: '',
-                        presentation: ''
+                        presentation: '',
+                        investiment: ''
                     }}
                     onSubmit={handleSubmit}
                 >
@@ -47,6 +48,7 @@ const UpdateProject = React.memo(() => {
                         <InputBlock Icon={FiGrid} name="name" placeholder="Título" />
                         <InputBlock Icon={FiAlignLeft} name="description" placeholder="Descrição" textarea />
                         <InputBlock Icon={FiServer} name="segment" placeholder="Segmento" />
+                        <InputBlock Icon={FiDollarSign} name="investment" placeholder="Investimento" />
                         <FileInput Icon={FiVideo} accept="video/*" name="videoPitch" placeholder="Vídeo Pitch" />
                         <FileInput Icon={FiUpload} accept="application/pdf" name="businessPlan" placeholder="Plano de negócios (PDF)" />
                         <FileInput Icon={FiUpload} accept="application/pdf" name="presentation" placeholder="Apresentação (PDF)" />
