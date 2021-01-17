@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import NewProject from '../components/pages/NewProject';
 import PartnerDashboard from '../components/pages/PartnerDashboard';
 
-const AppRoutes = React.memo(() => {
+const PartnerRoutes = React.memo(() => {
     return (
         <BrowserRouter>
             <Switch>
@@ -14,4 +14,4 @@ const AppRoutes = React.memo(() => {
     );
 });
 
-export default AppRoutes;
+export default PartnerRoutes;

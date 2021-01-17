@@ -1,10 +1,10 @@
 import React from 'react';
 import { useAuth } from '../hooks/auth';
-import AppRoutes from './app.routes';
+import PartnerRoutes from './partner.routes';
 import AuthRoutes from './auth.routes';
 
 const Routes = React.memo(() => {
-    return !useAuth().user ? <AppRoutes /> : <AuthRoutes />;
+    return !useAuth().user ? <PartnerRoutes /> : <AuthRoutes />;
 });
 
 export default Routes;
