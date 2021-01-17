@@ -44,6 +44,10 @@ export const Container = styled.div<ContainerProps>`
             ::-webkit-scrollbar {
                 display: none;
             }
+
+            ::placeholder {
+                color: #9E9E9E;
+            }
         }
         height: unset;
     `}
@@ -53,6 +57,10 @@ export const Container = styled.div<ContainerProps>`
         background-color: transparent;
 
         color: #EEEEEE;
+
+        ::placeholder {
+            color: #9E9E9E;
+        }
     }
 `;
 
