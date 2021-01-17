@@ -26,7 +26,7 @@ const UpdateProject = React.memo(() => {
 
     useEffect(() => {
         api.get(`projects/${id}`).then(res => setProject(res.data));
-    }, []);
+    }, [id]);
 
     const handleSubmit = React.useCallback(values => {
         const segment = Object.keys(segments).find(key => segments[key] === Object.values(segments)[values.segment - 1]);
@@ -40,7 +40,7 @@ const UpdateProject = React.memo(() => {
         const result = { ...project, ...values, segment };
 
         updateProject(id, result);
-    }, []);
+    }, [updateProject, id, project]);
 
     if (!project.name) {
         return (<div></div>);

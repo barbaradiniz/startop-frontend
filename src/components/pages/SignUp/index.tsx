@@ -27,7 +27,7 @@ const SignUp = React.memo(() => {
     const handleSubmit = React.useCallback(async values => {
         await signUp(values);
         push('/');
-    }, []);
+    }, [signUp, push]);
 
     return (
         <>

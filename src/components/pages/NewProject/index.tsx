@@ -1,6 +1,6 @@
 import { Form, Formik } from 'formik';
 import React from 'react';
-import { FiVideo, FiGrid, FiServer, FiUpload, FiAlignLeft, FiDollarSign } from 'react-icons/fi';
+import { FiVideo, FiGrid, FiUpload, FiAlignLeft, FiDollarSign } from 'react-icons/fi';
 import segments from '../../../config/segments';
 import { useProject } from '../../../hooks/project';
 import Button from '../../shared/Button';
@@ -17,7 +17,7 @@ const NewProject = React.memo(() => {
         const segment = Object.keys(segments).find(key => segments[key] === Object.values(segments)[values.segment - 1]);
 
         await createProject({...values, segment });
-    }, []);
+    }, [createProject]);
 
     return (
         <>

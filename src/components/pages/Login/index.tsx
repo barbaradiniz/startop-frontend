@@ -21,7 +21,7 @@ const Login = React.memo(() => {
     const handleSubmit = React.useCallback(async values => {
         await signIn(values);
         push('/');
-    }, []);
+    }, [push, signIn]);
 
     return (
         <>

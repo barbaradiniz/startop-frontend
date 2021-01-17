@@ -54,7 +54,7 @@ export const ProjectProvider: React.FC = ({ children }) => {
         api.get('projects').then(res => res.data.filter((project: IProject) => {
             return project.owner._id === _id;
         })).then(projects => setData({ projects }));
-    }, [api]);
+    }, [_id]);
 
     const createProject = useCallback(async (data: IProjectDTO) => {
         const multipartData = new FormData();
@@ -63,7 +63,7 @@ export const ProjectProvider: React.FC = ({ children }) => {
         multipartData.append('owner', _id);
 
         await api.post('projectsWithUploads', multipartData);
-    }, []);
+    }, [_id]);
 
     const updateProject = useCallback(async (id: string, data: IProjectDTO) => {
         await api.patch(`projects/${id}`, data);
