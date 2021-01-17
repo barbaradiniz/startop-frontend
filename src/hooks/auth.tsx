@@ -1,7 +1,6 @@
 import React, { useCallback, useContext, useState } from 'react';
 import { createContext } from "react";
 import api from '../services/api';
-import { uuid } from 'uuidv4';
 
 interface SignInCredentials {
     email: string;
