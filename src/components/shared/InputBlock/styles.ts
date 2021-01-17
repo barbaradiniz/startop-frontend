@@ -1,11 +1,12 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 interface ContainerProps {
     hasError: boolean
+    isTextarea?: boolean
 }
 
 export const Container = styled.div<ContainerProps>`
-    padding: 0px 16px;
+    padding: 12px 16px;
     display: flex;
     align-items: center;
     width: 100%;
@@ -23,6 +24,29 @@ export const Container = styled.div<ContainerProps>`
     svg + input {
         margin-left: 16px;
     }
+
+    ${({ isTextarea }) => isTextarea && 
+    css`
+        textarea {
+            background-color: #333333;
+            border: 0;
+            width: 100%;
+            height: 80px;
+            margin-left: 16px;
+
+            resize: none;
+
+            font-family: 'Mukta Mahee', serif;
+            font-size: 18px;
+
+            color: #EEEEEE;
+
+            ::-webkit-scrollbar {
+                display: none;
+            }
+        }
+        height: unset;
+    `}
 
     input {
         width: 100%;
