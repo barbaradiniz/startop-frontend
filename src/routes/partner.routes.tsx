@@ -10,9 +10,9 @@ const PartnerRoutes = React.memo(() => {
         <ProjectProvider>
             <BrowserRouter>
                 <Switch>
-                    <Route exact path="/" component={PartnerDashboard} />
-                    <Route path="/project/new" component={NewProject} />
-                    <Route path="/project/update/:id" component={UpdateProject} />
+                    <Route exact path="/project/new" component={NewProject} />
+                    <Route exact path="/project/update/:id" component={UpdateProject} />
+                    <Route exact path="" component={PartnerDashboard} />
                 </Switch>
             </BrowserRouter>
         </ProjectProvider>
