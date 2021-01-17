@@ -13,7 +13,7 @@ import { useAuth } from '../../../hooks/auth';
 const validationSchema = Yup.object().shape({
     name: Yup.string().required('Nome obrigatório'),
     username: Yup.string().required('Username obrigatório'),
-    type: Yup.number(),
+    userType: Yup.number(),
     email: Yup.string().email('Email inválido').required('Email obrigatório'),
     password: Yup.string().min(6, 'Mínimo de 6 caracteres').required('Senha obrigatória'),
     confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], 'Senha não corresponde à anterior').min(6, 'Mínimo de 6 caracteres').required('Senha obrigatória')
@@ -37,14 +37,14 @@ const SignUp = React.memo(() => {
                     <TopBorder />
                     <Formik
                         onSubmit={handleSubmit}
-                        initialValues={{ name: '', type: 1, email: '', password: '', confirmPassword: '' }}
+                        initialValues={{ name: '', userType: 1, email: '', password: '', confirmPassword: '' }}
                         validationSchema={validationSchema}
                         validateOnBlur={false}
                     >
                         <Form>
                             <h1>Cadastro</h1>
                             <Switch
-                                name="type"
+                                name="userType"
                                 data={[
                                     'Parceiro',
                                     'Investidor'
