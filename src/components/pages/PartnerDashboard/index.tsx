@@ -20,7 +20,7 @@ const PartnerDashboard = () => {
                 <h1>Seus projetos</h1>
                 <section>
                     {projects.map(project => (
-                        <ProjectCard project={project} />
+                        <ProjectCard key={project._id} project={project} />
                     ))}
                     <Link to="/project/new"><img src={newProject} alt="new project"/></Link>
                 </section>
