@@ -1,7 +1,9 @@
 import { Form, Formik } from 'formik';
 import React, { useEffect, useState } from 'react';
-import { FiVideo, FiGrid, FiServer, FiUpload, FiAlignLeft, FiDollarSign } from 'react-icons/fi';
+import { FiVideo, FiGrid, FiUpload, FiAlignLeft, FiDollarSign } from 'react-icons/fi';
 import { useRouteMatch } from 'react-router-dom';
+import Switch from '../../shared/Switch/index';
+import segments from '../../../config/segments';
 import api from '../../../services/api';
 import Button from '../../shared/Button';
 import FileInput from '../../shared/FileInput';
@@ -25,6 +27,7 @@ const UpdateProject = React.memo(() => {
     }, []);
 
     const handleSubmit = React.useCallback(values => {
+        const segment = Object.keys(segments).find(key => segments[key] === Object.values(segments)[values.segment - 1]);
         console.log(values)
     }, []);
 
@@ -41,7 +44,7 @@ const UpdateProject = React.memo(() => {
                     initialValues={{
                         name: project.name,
                         description: project.description,
-                        segment: project.segment,
+                        segment: Object.keys(segments).findIndex(key => key === project.segment) + 1,
                         videoPitch: '',
                         businessPlan: '',
                         presentation: '',
@@ -50,9 +53,9 @@ const UpdateProject = React.memo(() => {
                     onSubmit={handleSubmit}
                 >
                     <Form>
+                        <Switch name="segment" data={Object.values(segments)} />
                         <InputBlock Icon={FiGrid} name="name" placeholder="Título" />
                         <InputBlock Icon={FiAlignLeft} name="description" placeholder="Descrição" textarea />
-                        <InputBlock Icon={FiServer} name="segment" placeholder="Segmento" />
                         <InputBlock Icon={FiDollarSign} name="investment" placeholder="Investimento" />
                         <FileInput Icon={FiVideo} accept="video/*" name="videoPitch" placeholder="Vídeo Pitch" />
                         <FileInput Icon={FiUpload} accept="application/pdf" name="businessPlan" placeholder="Plano de negócios (PDF)" />
