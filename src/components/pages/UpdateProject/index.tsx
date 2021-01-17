@@ -13,6 +13,7 @@ interface IProject {
     name: string,
     description: string,
     segment: string,
+    investment: string
 }
 
 const UpdateProject = React.memo(() => {
@@ -40,7 +41,7 @@ const UpdateProject = React.memo(() => {
                         videoPitch: '',
                         businessPlan: '',
                         presentation: '',
-                        investiment: ''
+                        investiment: project.investment
                     }}
                     onSubmit={handleSubmit}
                 >
