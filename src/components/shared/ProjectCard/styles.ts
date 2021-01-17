@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import VideoThumbnail from 'react-video-thumbnail';
 
 export const Container = styled(Link)`
     display: flex;
@@ -17,6 +18,18 @@ export const Container = styled(Link)`
     }
 
     > div {
+        flex: 1;
+        width: 100%;
+        height: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    > section {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -30,10 +43,4 @@ export const Container = styled(Link)`
             color: #F24236;
         }
     }
-`;
-
-export const Image = styled.span<{ src: string }>`
-    flex: 1;
-    background: url(${props => props.src}) no-repeat center;
-    background-size: cover;
 `;

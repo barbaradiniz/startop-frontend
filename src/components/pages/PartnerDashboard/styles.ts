@@ -24,7 +24,7 @@ export const Container = styled.div`
         background-color: #3D3D3D;
         border-top-right-radius: 30px;
 
-        > a img {
+        > a > img {
             width: 320px;
             height: 320px;
         }

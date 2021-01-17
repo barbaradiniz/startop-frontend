@@ -1,7 +1,7 @@
 import React from 'react';
-import { Container, Image } from './styles';
-import image from '../../../assets/images/login-page-background.png';
-import { Link } from 'react-router-dom';
+import { Container } from './styles';
+import segments from '../../../config/segments';
+import VideoThumbnail from 'react-video-thumbnail';
 
 interface IProject {
     name: string;
@@ -21,11 +21,12 @@ interface IProjectCardProps {
 const ProjectCard: React.FC<IProjectCardProps> = React.memo(({ project }) => {
     return (
         <Container to={`/project/update/${project._id}`}>
-            <Image src={image} />
-            <div>
+            <VideoThumbnail videoUrl={`http://173.249.38.45:8080/uploads/${project.videoPitch}`} />
+            <section>
                 <h4><span>R$</span> {project.investment}</h4>
                 <h3>{project.name}</h3>
-            </div>
+                <p>{segments[project.segment]}</p>
+            </section>
         </Container>
     );
 });
