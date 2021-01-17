@@ -10,6 +10,7 @@ import FileInput from '../../shared/FileInput';
 import Header from '../../shared/Header';
 import InputBlock from '../../shared/InputBlock';
 import { Container } from './styles';
+import { useProject } from '../../../hooks/project';
 
 interface IProject {
     name: string,
@@ -21,6 +22,7 @@ interface IProject {
 const UpdateProject = React.memo(() => {
     const [project, setProject] = useState<IProject>({} as IProject);
     const { id } = useRouteMatch<{ id: string }>().params;
+    const { updateProject } = useProject();
 
     useEffect(() => {
         api.get(`projects/${id}`).then(res => setProject(res.data));
@@ -28,7 +30,16 @@ const UpdateProject = React.memo(() => {
 
     const handleSubmit = React.useCallback(values => {
         const segment = Object.keys(segments).find(key => segments[key] === Object.values(segments)[values.segment - 1]);
-        console.log(values)
+
+        Object.keys(values).forEach(key => {
+            if (!values[key]) {
+                delete values[key];
+            }
+        });
+
+        const result = { ...project, ...values, segment };
+
+        updateProject(id, result);
     }, []);
 
     if (!project.name) {

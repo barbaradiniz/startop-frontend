@@ -32,6 +32,7 @@ interface IProjectDTO {
 
 interface ProjectContextData {
     createProject(data: IProjectDTO): Promise<void>;
+    updateProject(id: string, data: IProjectDTO): Promise<void>;
     projects: IProject[];
 }
 
@@ -64,8 +65,12 @@ export const ProjectProvider: React.FC = ({ children }) => {
         await api.post('projectsWithUploads', multipartData);
     }, []);
 
+    const updateProject = useCallback(async (id: string, data: IProjectDTO) => {
+        await api.patch(`projects/${id}`, data);
+    }, []);
+
     return (
-        <ProjectContext.Provider value={{ ...data, createProject }}>
+        <ProjectContext.Provider value={{ ...data, createProject, updateProject }}>
             { children}
         </ProjectContext.Provider>
     );
