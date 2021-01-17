@@ -3,6 +3,7 @@ import Header from '../../shared/Header';
 import newProject from '../../../assets/images/new-project.png';
 import { Container } from './styles';
 import ProjectCard from '../../shared/ProjectCard';
+import { Link } from 'react-router-dom';
 
 const PartnerDashboard = React.memo(() => {
 
@@ -15,7 +16,7 @@ const PartnerDashboard = React.memo(() => {
                     <ProjectCard />
                     <ProjectCard />
                     <ProjectCard />
-                    <img src={newProject} alt="new project"/>
+                    <Link to="/project/new"><img src={newProject} alt="new project"/></Link>
                 </section>
             </Container>
         </>
