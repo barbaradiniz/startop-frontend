@@ -57,8 +57,7 @@ export const AuthProvider : React.FC = ({ children }) => {
     }, []);
 
     const signUp = useCallback(async (data: SignUpCredentials) => {
-        Object.assign(data, { id: uuid() });
-        const res = await api.post('users', data);
+        const res = await api.put('users/1', data);
 
         const user = res.data;
 
