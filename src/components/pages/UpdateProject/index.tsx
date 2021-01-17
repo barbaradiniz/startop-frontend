@@ -28,6 +28,10 @@ const UpdateProject = React.memo(() => {
         console.log(values)
     }, []);
 
+    if (!project.name) {
+        return (<div></div>);
+    }
+
     return (
         <>
             <Header />
