@@ -10,7 +10,7 @@ import InputBlock from '../../shared/InputBlock';
 import { Container } from './styles';
 
 interface IProject {
-    title: string,
+    name: string,
     description: string,
     segment: string,
 }
@@ -34,7 +34,7 @@ const UpdateProject = React.memo(() => {
                 <h1>Alterar dados</h1>
                 <Formik
                     initialValues={{
-                        title: project.title,
+                        name: project.name,
                         description: project.description,
                         segment: project.segment,
                         videoPitch: '',
@@ -44,7 +44,7 @@ const UpdateProject = React.memo(() => {
                     onSubmit={handleSubmit}
                 >
                     <Form>
-                        <InputBlock Icon={FiGrid} name="title" placeholder="Título" />
+                        <InputBlock Icon={FiGrid} name="name" placeholder="Título" />
                         <InputBlock Icon={FiAlignLeft} name="description" placeholder="Descrição" textarea />
                         <InputBlock Icon={FiServer} name="segment" placeholder="Segmento" />
                         <FileInput Icon={FiVideo} accept="video/*" name="videoPitch" placeholder="Vídeo Pitch" />
