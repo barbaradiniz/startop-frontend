@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import NewProject from '../components/pages/NewProject';
 import PartnerDashboard from '../components/pages/PartnerDashboard';
 
 const AppRoutes = React.memo(() => {
@@ -7,6 +8,7 @@ const AppRoutes = React.memo(() => {
         <BrowserRouter>
             <Switch>
                 <Route exact path="/" component={PartnerDashboard} />
+                <Route path="/project/new" component={NewProject} />
             </Switch>
         </BrowserRouter>
     );
