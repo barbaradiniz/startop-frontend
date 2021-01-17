@@ -16,11 +16,19 @@ interface SignUpCredentials {
 }
 
 interface AuthState {
-    user: object;
+    user: IUser;
+}
+
+interface IUser {
+    name: string;
+    email: string;
+    username: string;
+    password: string;
+    _id: string;
 }
 
 interface AuthContextData {
-    user: object;
+    user: IUser;
     signIn(credentials: SignInCredentials): Promise<void>;
     signUp(credentials: SignUpCredentials): Promise<void>;
     signOut(): void;
