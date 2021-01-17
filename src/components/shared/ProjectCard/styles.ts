@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled(Link)`
     display: flex;
     flex: 0 0 320px;
     height: 100%;
@@ -19,7 +20,7 @@ export const Container = styled.div`
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        padding: 5px 15px 10px 10px;
+        padding: 5px 25px 20px 20px;
 
         > h3 {
             line-height: 80%;

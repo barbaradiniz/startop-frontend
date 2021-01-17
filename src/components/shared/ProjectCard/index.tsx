@@ -20,15 +20,13 @@ interface IProjectCardProps {
 
 const ProjectCard: React.FC<IProjectCardProps> = React.memo(({ project }) => {
     return (
-        <Link to={`/project/update/${project._id}`}>
-            <Container>
-                <Image src={image} />
-                <div>
-                    <h4><span>R$</span> {project.investment}</h4>
-                    <h3>{project.name}</h3>
-                </div>
-            </Container>
-        </Link>
+        <Container to={`/project/update/${project._id}`}>
+            <Image src={image} />
+            <div>
+                <h4><span>R$</span> {project.investment}</h4>
+                <h3>{project.name}</h3>
+            </div>
+        </Container>
     );
 });
 
