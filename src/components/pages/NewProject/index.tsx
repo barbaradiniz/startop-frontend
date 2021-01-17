@@ -1,6 +1,7 @@
 import { Form, Formik } from 'formik';
 import React from 'react';
 import { FiVideo, FiGrid, FiServer, FiUpload, FiAlignLeft } from 'react-icons/fi';
+import { useProject } from '../../../hooks/project';
 import Button from '../../shared/Button';
 import FileInput from '../../shared/FileInput';
 import Header from '../../shared/Header';
@@ -8,8 +9,10 @@ import InputBlock from '../../shared/InputBlock';
 import { Container } from './styles';
 
 const NewProject = React.memo(() => {
-    const handleSubmit = React.useCallback(values => {
-        console.log(values)
+    const { createProject } = useProject();
+
+    const handleSubmit = React.useCallback(async values => {
+        await createProject(values);
     }, []);
 
     return (
@@ -19,7 +22,7 @@ const NewProject = React.memo(() => {
                 <h1>Novo projeto</h1>
                 <Formik
                     initialValues={{
-                        title: '',
+                        name: '',
                         description: '',
                         segment: '',
                         videoPitch: '',
@@ -29,7 +32,7 @@ const NewProject = React.memo(() => {
                     onSubmit={handleSubmit}
                 >
                     <Form>
-                        <InputBlock Icon={FiGrid} name="title" placeholder="Título" />
+                        <InputBlock Icon={FiGrid} name="name" placeholder="Título" />
                         <InputBlock Icon={FiAlignLeft} name="description" placeholder="Descrição" textarea />
                         <InputBlock Icon={FiServer} name="segment" placeholder="Segmento" />
                         <FileInput Icon={FiVideo} accept="video/*" name="videoPitch" placeholder="Vídeo Pitch" />

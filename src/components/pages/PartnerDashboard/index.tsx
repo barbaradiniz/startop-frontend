@@ -4,8 +4,14 @@ import newProject from '../../../assets/images/new-project.png';
 import { Container } from './styles';
 import ProjectCard from '../../shared/ProjectCard';
 import { Link } from 'react-router-dom';
+import { useProject } from '../../../hooks/project';
 
-const PartnerDashboard = React.memo(() => {
+const PartnerDashboard = () => {
+    const { projects } = useProject();
+
+    if(!projects) {
+        return <div></div>;
+    }
 
     return (
         <>
@@ -13,14 +19,14 @@ const PartnerDashboard = React.memo(() => {
             <Container>
                 <h1>Seus projetos</h1>
                 <section>
-                    <ProjectCard />
-                    <ProjectCard />
-                    <ProjectCard />
+                    {projects.map(project => (
+                        <ProjectCard project={project} />
+                    ))}
                     <Link to="/project/new"><img src={newProject} alt="new project"/></Link>
                 </section>
             </Container>
         </>
     );
-});
+};
 
 export default PartnerDashboard;
