@@ -24,7 +24,7 @@ const ProjectDetails = React.memo(() => {
 
     React.useEffect(() => {
         api.get(`projects/${id}`).then(res => setProject(res.data));
-    }, []);
+    }, [id]);
 
     
     if (!project.name) {
