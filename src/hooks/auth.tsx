@@ -10,7 +10,7 @@ interface SignInCredentials {
 interface SignUpCredentials {
     username: string;
     name: string;
-    userType: 1 | 2;
+    type: 1 | 2;
     email: string;
     password: string;
 }
@@ -22,7 +22,7 @@ interface AuthState {
 interface IUser {
     name: string;
     email: string;
-    userType: 1 | 2;
+    type: 1 | 2;
     username: string;
     password: string;
     _id: string;

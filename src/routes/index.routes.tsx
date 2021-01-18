@@ -6,7 +6,7 @@ import InvestorRoutes from './investor.routes';
 
 const Routes = React.memo(() => {
     const { user } = useAuth();
-    return user ? ((user.userType === 1) ? <PartnerRoutes /> : <InvestorRoutes />) : <AuthRoutes />;
+    return user ? ((user.type === 1) ? <PartnerRoutes /> : <InvestorRoutes />) : <AuthRoutes />;
 });
 
 export default Routes;
