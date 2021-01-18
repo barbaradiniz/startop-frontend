@@ -16,16 +16,10 @@ export const Container = styled(Link)`
         margin-left: 32px;
     }
 
-    > div {
-        flex: 1;
+    video {
         width: 100%;
-        height: 100%;
-
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        flex: 1;
+        object-fit: cover;
     }
 
     > section {
