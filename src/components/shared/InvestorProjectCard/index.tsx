@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container } from './styles';
-import VideoThumbnail from 'react-video-thumbnail';
 
 interface IProject {
     name: string;
