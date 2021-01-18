@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container } from './styles';
 import segments from '../../../config/segments';
-import VideoThumbnail from 'react-video-thumbnail';
 
 interface IProject {
     name: string;
@@ -21,7 +20,7 @@ interface IProjectCardProps {
 const ProjectCard: React.FC<IProjectCardProps> = React.memo(({ project }) => {
     return (
         <Container to={`/project/update/${project._id}`}>
-            <VideoThumbnail videoUrl={`http://173.249.38.45:8080/uploads/${project.videoPitch}`} />
+            <video src={`http://173.249.38.45:8080/uploads/${project.videoPitch}`} />
             <section>
                 <h4><span>R$</span> {project.investment}</h4>
                 <h3>{project.name}</h3>
