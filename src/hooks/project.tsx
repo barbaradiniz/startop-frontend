@@ -16,6 +16,10 @@ interface IProject {
     businessPlan: string,
     presentation: string,
     investment: number,
+    owner: {
+        name: string;
+        _id: string;
+    }
     _id: string;
 }
 
