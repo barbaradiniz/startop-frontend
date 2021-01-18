@@ -5,6 +5,7 @@ import { useAuth } from './auth';
 
 interface ProjectState {
     projects: IProject[];
+    filteredProjects: IProject[]
 }
 
 interface IProject {
@@ -38,6 +39,7 @@ interface ProjectContextData {
     createProject(data: IProjectDTO): Promise<void>;
     updateProject(id: string, data: IProjectDTO): Promise<void>;
     projects: IProject[];
+    filteredProjects: IProject[];
 }
 
 export const ProjectContext = createContext<ProjectContextData>({} as ProjectContextData);
@@ -55,9 +57,14 @@ export const ProjectProvider: React.FC = ({ children }) => {
     const { user: { _id } } = useAuth();
 
     useEffect(() => {
-        api.get('projects').then(res => res.data.filter((project: IProject) => {
-            return project.owner._id === _id;
-        })).then(projects => setData({ projects }));
+        api.get('projects').then(res => {
+            return {
+                filteredProjects: res.data.filter((project: IProject) => {
+                    return project.owner._id === _id;
+                }),
+                projects: res.data
+            };
+        }).then(({ filteredProjects, projects }) => setData({ filteredProjects, projects }));
     }, [_id]);
 
     const createProject = useCallback(async (data: IProjectDTO) => {
