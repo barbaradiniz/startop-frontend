@@ -17,7 +17,7 @@ const InvestorDashboard = React.memo(() => {
             <Header />
             <Container>
                 {Object.keys(segments).map(key => projects.filter(project => project.segment === key).length > 0 && (
-                    <section>
+                    <section key={key}>
                         <h2>{segments[key]}</h2>
                         <div>
                             {projects.filter(project => project.segment === key).map(project => (
