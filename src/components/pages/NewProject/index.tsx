@@ -1,6 +1,7 @@
 import { Form, Formik } from 'formik';
 import React from 'react';
 import { FiVideo, FiGrid, FiUpload, FiAlignLeft, FiDollarSign } from 'react-icons/fi';
+import { useHistory } from 'react-router-dom';
 import segments from '../../../config/segments';
 import { useProject } from '../../../hooks/project';
 import Button from '../../shared/Button';
@@ -12,12 +13,14 @@ import { Container } from './styles';
 
 const NewProject = React.memo(() => {
     const { createProject } = useProject();
+    const { goBack } = useHistory();
 
     const handleSubmit = React.useCallback(async values => {
         const segment = Object.keys(segments).find(key => segments[key] === Object.values(segments)[values.segment - 1]);
 
         await createProject({...values, segment });
-    }, [createProject]);
+        goBack();
+    }, [createProject, goBack]);
 
     return (
         <>
