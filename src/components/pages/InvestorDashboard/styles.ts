@@ -13,6 +13,7 @@ export const Container = styled.div`
         background-color: #3D3D3D;
         border-radius: 0 30px 30px 0;
         padding: 20px 50px;
+        margin-bottom: 80px;
 
         h1 {
             margin-bottom: 30px;
@@ -31,7 +32,4 @@ export const Container = styled.div`
         }
     }
 
-    section + section {
-        margin-top: 80px;
-    }
 `;
