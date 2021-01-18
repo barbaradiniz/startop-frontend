@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom';
 import { useProject } from '../../../hooks/project';
 
 const PartnerDashboard = () => {
-    const { projects } = useProject();
+    const { filteredProjects } = useProject();
 
-    if(!projects) {
+    if(!filteredProjects) {
         return <div></div>;
     }
 
@@ -19,7 +19,7 @@ const PartnerDashboard = () => {
             <Container>
                 <h1>Seus projetos</h1>
                 <section>
-                    {projects.map(project => (
+                    {filteredProjects.map(project => (
                         <ProjectCard key={project._id} project={project} />
                     ))}
                     <Link to="/project/new"><img src={newProject} alt="new project"/></Link>
