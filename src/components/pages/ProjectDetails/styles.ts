@@ -56,3 +56,21 @@ export const Container = styled.div`
         }
     }
 `;
+
+export const WhatsappButton = styled.a`
+    padding: 10px 30px;
+    border-radius: 8px;
+    color: #EEEEEE;
+    width: 100%;
+    background-color: #36CF82;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 20px;
+
+    svg {
+        margin-right: 16px;
+    }
+`;

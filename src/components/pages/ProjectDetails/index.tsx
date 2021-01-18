@@ -4,7 +4,8 @@ import { useRouteMatch } from 'react-router-dom';
 import api from '../../../services/api';
 import Button from '../../shared/Button';
 import Header from '../../shared/Header';
-import { Container } from './styles';
+import { Container, WhatsappButton } from './styles';
+import { AiOutlineWhatsApp } from 'react-icons/ai';
 
 interface IProject {
     name: string,
@@ -15,6 +16,7 @@ interface IProject {
     investment: number,
     owner: {
         name: string;
+        whatsapp: number;
     }
 }
 
@@ -45,6 +47,10 @@ const ProjectDetails = React.memo(() => {
                         <p>{project.description}</p>
                         <Button onClick={() => window.open(`http://173.249.38.45:8080/files/${project.businessPlan}`)}><FiDownload /> Baixar Plano de negócios</Button>
                         <Button onClick={() => window.open(`http://173.249.38.45:8080/files/${project.presentation}`)}><FiDownload /> Baixar Apresentação</Button>
+                        <WhatsappButton href={`https://wa.me/${project.owner.whatsapp}`} target="_blank">
+                            <AiOutlineWhatsApp size={20} color="#FFF" />
+                            Entrar em contato
+                        </WhatsappButton>
                     </main>
                     <video onClick={e => {
                         if(e.currentTarget.paused) e.currentTarget.play();
